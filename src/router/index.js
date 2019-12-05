@@ -13,15 +13,13 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    
-    component: () => import(/* webpackChunkName: "about" */ '../views/login.vue')
+    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
   },
   {
     path: '/signup',
     name: 'signup',
-    
-    component: () => import(/* webpackChunkName: "about" */ '../views/signup.vue')
-  }
+    component: () => import(/* webpackChunkName: "signup" */ '../views/Signup.vue')
+  },
 ]
 
 const router = new VueRouter({
