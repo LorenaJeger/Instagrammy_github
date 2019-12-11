@@ -21,8 +21,14 @@
         <div class="form-group">
           <label for="confirmPasswordField">Confirm Password</label>
           <input v-model="passwordConfirmation" type="password" class="form-control" id="confirmPasswordField" placeholder="Confirm password">
+       <button type="submit" class="btn btn-primary">Submit</button>
+            <div v-if="password != passwordConfirmation" class="alert alert-danger" role="alert">Passwords do not match.</div>
+            <button
+              v-if="password === passwordConfirmation"
+              type="submit"
+              class="btn btn-primary"
+            >Submit</button>
         </div>
-        <button type="submit" class="btn btn-primary mt-5">Submit</button>
       </form>
     </div>
     <div class="col"></div>
@@ -44,6 +50,11 @@ export default {
 firebase.auth().createUserWithEmailAndPassword(this.email, this.password).catch(function(error) {
      console.log(error)
     });
+firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .catch(function(error) {
+        });
    }
  }
    }
